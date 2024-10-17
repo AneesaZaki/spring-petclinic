@@ -6,18 +6,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                script {
-                    
-                    sh './mvnw clean package'
-                }
+                bat 'mvn clean package'  
             }
         }
         stage('Code Coverage') {
             steps {
-                script {
-                    // Generate Jacoco report
-                    sh './mvnw jacoco:report'
-                }
+                bat 'mvn jacoco:report'  
             }
         }
     }
